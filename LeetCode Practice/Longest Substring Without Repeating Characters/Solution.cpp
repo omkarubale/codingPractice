@@ -1,16 +1,16 @@
-for(i = 0; i< s.length(); i++)
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        vector<int> asciiMap(256, -1);
+        int start = -1, max = 0;
+        
+        for(int i = 0; i< s.length(); i++)
         {
-            found = current.find(s[i]);
-            if()
-            {
-                current += s[i];
-                count++;
-            }
-            else
-            {
-                current = "";
-                if(count>max)
-                    max = count;
-                count = 0;
-            }
+            if(asciiMap[s[i]]>start)
+                start = asciiMap[s[i]];
+            asciiMap[s[i]]=i;
+            max = std::max(max,i-start);
         }
+        return max;
+    }
+};
