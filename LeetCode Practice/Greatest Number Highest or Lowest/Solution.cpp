@@ -11,10 +11,10 @@ public:
         while(start < end)
         {
             int middle = ((end-start)/2) + start;
-            
-            if(guess(middle) == 0) return middle;
-            if(guess(middle) > 0) start = middle + 1;            
-            if(guess(middle) < 0) end = middle - 1;
+            int guessResult = guess(middle);
+            if(guessResult == 0) return middle;
+            if(guessResult > 0) start = middle + 1;            
+            if(guessResult < 0) end = middle - 1;
         }
         return end;
     }
